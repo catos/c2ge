@@ -1,5 +1,5 @@
 import { Circle, System as Physics } from "detect-collisions"
-import { System, World } from "../../ecs"
+import { System, World } from "../../engine"
 import MovementComponent from "../components/MovementComponent"
 import TransformComponent from "../components/TransformComponent"
 

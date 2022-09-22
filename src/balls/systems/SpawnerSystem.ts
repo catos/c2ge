@@ -1,6 +1,6 @@
-import { Entity, System, Vector, World } from "../../ecs"
+import { Entity, System, Vector, World } from "../../engine"
 import TransformComponent from "../components/TransformComponent"
-import { getRandom, getRandomInt } from "../../ecs/utils"
+import { getRandom, getRandomInt } from "../../engine/utils"
 import MovementComponent from "../components/MovementComponent"
 
 export default class SpawnerSystem extends System {

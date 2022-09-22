@@ -1,6 +1,7 @@
 import { EventEmitter } from "eventemitter3"
-import { Canvas, DebugSystem, InputManager, World } from "../ecs"
-import GameLoopManager from "../ecs/GameLoopManager"
+import * as PIXI from "pixi.js"
+import { Canvas, DebugSystem, InputManager, World } from "../engine"
+import GameLoopManager from "../engine/GameLoopManager"
 import Player from "./entities/PlayerEntity"
 import CollisionSystem from "./systems/CollisionSystem"
 import MovementSystem from "./systems/MovementSystem"
@@ -8,11 +9,19 @@ import PlayerInputSystem from "./systems/PlayerInputSystem"
 import RenderSystem from "./systems/RenderSystem"
 import SpawnerSystem from "./systems/SpawnerSystem"
 
-// --- Canvas
+// // --- Canvas
 
-const canvas = new Canvas()
-window.canvas = canvas.canvas
-window.context = canvas.context
+// const canvas = new Canvas()
+// window.canvas = canvas.canvas
+// window.context = canvas.context
+
+const app = new PIXI.Application()
+document.body.appendChild(app.view)
+const circle = new PIXI.Graphics()
+circle.beginFill(0xff0000)
+circle.drawCircle(100, 100, 50)
+
+app.stage.addChild(circle)
 
 // --- Events
 

@@ -1,4 +1,4 @@
-import { Entity, System, World } from "../../ecs"
+import { Entity, System, World } from "../../engine"
 import MovementComponent from "../components/MovementComponent"
 import TransformComponent from "../components/TransformComponent"
 

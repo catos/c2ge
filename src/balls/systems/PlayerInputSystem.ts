@@ -1,4 +1,4 @@
-import { Entity, System, World } from "../../ecs"
+import { Entity, System, World } from "../../engine"
 import MovementComponent from "../components/MovementComponent"
 
 export default class InputSystem extends System {
@@ -33,11 +33,23 @@ export default class InputSystem extends System {
       direction.x = 0
     }
 
+    if (input.keysDown.has("KeyS")) {
+      direction.y = 1
+    } else if (input.keysDown.has("KeyW")) {
+      direction.y = -1
+    } else {
+      direction.y = 0
+    }
+
     // const currentXVelocity = Math.abs(velocity.x)
 
     // Accelerate
     if (direction.x !== 0) {
-      velocity.x = velocity.x + acceleration * dt * direction.x
+      velocity.x = acceleration * dt * direction.x
+    }
+
+    if (direction.y !== 0) {
+      velocity.y = acceleration * dt * direction.y
     }
     // else if (velocity.x !== 0) {
     //   const decel = Math.min(currentXVelocity, acceleration * 0.5 * dt)
